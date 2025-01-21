@@ -1,4 +1,5 @@
-
+let humanScore = 0; // variable to keep track of Player Score.
+let computerScore = 0; // variable to keep track of Computer Score.
 
 function getComputerChoice(){
     const minChoiceCode = 112; // character code for p
@@ -17,24 +18,77 @@ function getComputerChoice(){
         // if 112 then alphabet is p and concatenating "aper" to it to return paper and so on for the rest.
         else{
             if(randomChoice === 112){
-                console.log(String.fromCharCode(randomChoice) + "aper");
+                randomChoice = String.fromCharCode(randomChoice) + "aper";
                 choice = false;
             }
             else if(randomChoice === 114){
-                console.log(String.fromCharCode(randomChoice) + "ock");
+                randomChoice = String.fromCharCode(randomChoice) + "ock";
                 choice = false;
             }
             else{
-                console.log(String.fromCharCode(randomChoice) + "cissors");
+                randomChoice = String.fromCharCode(randomChoice) + "cissors";
                 choice = false;
             }
         }
     }
+    return randomChoice;
 }
 
 function getHumanChoice(){
     let userChoice = prompt("Please enter your choice:");
     userChoice = userChoice.toLowerCase();
-    console.log(userChoice);
+    return userChoice;
 }
 
+
+function playRound(humanChoice, computerChoice){
+    // if the player chooses rock.
+    if (humanChoice === "rock"){
+        if(computerChoice === "paper"){
+            console.log("You Lose! Paper beats Rock.");
+            computerScore++;
+        }
+        else if(computerChoice === "scissors"){
+            console.log("You Win! Rock beats Scissors.");
+            humanScore++;
+        }
+        else{
+            console.log("Draw!!");
+        }
+    }
+    // if the player chooses paper.
+    else if(humanChoice === "paper"){
+        if(computerChoice === "rock"){
+            console.log("You Win! Paper beats Rock.");
+            humanScore++;
+        }
+        else if(computerChoice === "scissors"){
+            console.log("You Lose! Scissors beat Paper.");
+            computerScore++;
+        }
+        else{
+            console.log("Draw!");
+        }
+    }
+    // if the player chooses scissors
+    else{
+        if(computerChoice === "paper"){
+            console.log("You Win! Scissors beat Paper.");
+            humanScore++;
+        }
+        else if(computerChoice === "rock"){
+            console.log("You Lose! Rock beats Scissors.");
+            computerScore++;
+        }
+        else{
+            console.log("Draw!");
+        }
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+function noOfRounds(){
+    
+}
