@@ -36,11 +36,9 @@ function getHumanChoice(){
 function playGame(){
 
 
-    let humanScore = 0; // variable to keep track of Player Score.
-    let computerScore = 0; // variable to keep track of Computer Score.
+        let humanScore = 0; // variable to keep track of Player Score.
+        let computerScore = 0; // variable to keep track of Computer Score.
 
-    let counter = 1;
-    while(counter <= 5){
         let humanChoice = getHumanChoice();
         let computerChoice = getComputerChoice();
 
@@ -81,8 +79,7 @@ function playGame(){
         }
         playRound(humanChoice,computerChoice);
         counter++;
-
-    } 
+ 
       
     if(humanScore > computerScore){
         alert("Your Score: " + humanScore +" Computer Score: " + computerScore);  
