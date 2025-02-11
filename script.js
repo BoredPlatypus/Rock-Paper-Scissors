@@ -26,14 +26,25 @@ function getComputerChoice(){
     return randomChoice;
 }
 
-function getHumanChoice(){
-    let userChoice = prompt("Please enter your choice:");
-    userChoice = userChoice.toLowerCase();
-    return userChoice;
+function getHumanChoice(playerChoice){
+    return playerChoice;
 }
 
 
 function playGame(){
+        const choiceRock = document.querySelector("#rock");
+        choiceRock.addEventListener("click" , () =>{
+            console.log(getHumanChoice("rock"));
+
+        });
+        const choicePaper = document.querySelector("#paper");
+        choicePaper.addEventListener("click", ()=>{
+            console.log(getHumanChoice("paper"));
+        });
+        const choiceScissors = document.querySelector("#scissors");
+        choiceScissors.addEventListener("click", ()=>{
+            console.log(getHumanChoice("scissors"));
+        });
 
 
         let humanScore = 0; // variable to keep track of Player Score.
@@ -78,7 +89,7 @@ function playGame(){
             }
         }
         playRound(humanChoice,computerChoice);
-        counter++;
+        
  
       
     if(humanScore > computerScore){
